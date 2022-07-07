@@ -1,0 +1,87 @@
+site_name: Groundhog all the way north
+theme:
+  name: material
+  language: zh
+  palette:
+    primary: black
+  features:
+    - navigation.sections
+  favicon: assets/avatar-img.png
+  logo: assets/avatar-img.png
+  hide: true
+  font:
+    text: Itim
+    code: Itim Mono
+
+nav:
+  - Devops:
+    - CI:
+      - Github Action: 
+        - K8S Runner 安装: devops/ci/github_action/kubernetes_runner.md
+        - Action 开发: devops/ci/github_action/action_deployment.md
+    - Artifactory:
+      - CLI: devops/artifactory/cli.md
+  - Public Cloud: 
+    - 阿里云:
+      - Ingress部署规划: public-cloud/alicloud_ingress.md
+    - AWS: public-cloud/index.md
+    - Azure: public-cloud/index.md
+  - Kubernetes:
+    - 基础:
+      - HPA: kubernetes/knowledge/hpa.md
+      - Resource limit:  
+        - CPU: kubernetes/knowledge/cpu_limit.md
+    - 监控:
+      - 方案记录: kubernetes/monitor/solutions.md
+      - 报警: kubernetes/monitor/alert.md
+      - 指标描述: kubernetes/monitor/metrics.md
+    - Opertor: kubernetes/operator/index.md
+  - Others: 
+    - Tools:
+      - MKDocs: tools/mkdoc.md
+      - Plantuml with vscode: tools/plantuml_vscode.md
+      - MacOS: tools/macos.md
+
+extra_javascript:
+  - javascripts/extra.js
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde

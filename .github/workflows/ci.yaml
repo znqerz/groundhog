@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+      - run: pip install mkdocs-material
+      - run: mkdocs gh-deploy --force
+      # - name: Sync to Gitee
+      #   uses: znqerz/git-mirror-action@master
+      #   env:
+      #     SSH_PRIVATE_KEY: ${{ secrets.GITEE_SECRET }}
+      #   with:
+      #     source-repo: git@github.com:znqerz/essay-notes.git
+      #     destination-repo: git@gitee.com:znqerzw/essay-notes.git
